@@ -1,23 +1,66 @@
 package sample;
+import java.util.ArrayList;
+import java.util.Collections;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-public class Main extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-    }
-
+public class Main {
 
     public static void main(String[] args) {
-        launch(args);
+
+        //testing employeeInfo
+
+        System.out.println("*****testing employee info ******");
+
+        EmployeeInfo employeeInfoTest1 = new EmployeeInfo();
+
+        String muneca = employeeInfoTest1.toString();
+
+        System.out.println(muneca);
+
+        System.out.println("*****testing employee info ******");
+
+        //end of testing
+
+
+        ArrayList<Product> products =new ArrayList<Product>();
+
+        // Write one line of code to call testCollection and assign the result to the ArrayList
+        products = testCollection();
+
+        // Write one line of code to sort the ArrayList
+        Collections.sort(products);
+
+        // Call the print method on the ArrayList
+        print(products);
+    }
+
+    // Step 15
+    // Complete the header for the testCollection method here
+
+    public static ArrayList<Product> testCollection() {
+
+        AudioPlayer a1 = new AudioPlayer("iPod Mini","MP3");
+        AudioPlayer a2 = new AudioPlayer("Walkman","WAV ");
+        MoviePlayer m1 = new MoviePlayer("DBPOWER MK101",
+            new Screen(" 720x480", 40, 22), MonitorType.LCD);
+        MoviePlayer m2 = new MoviePlayer("Pyle PDV156BK",
+            new Screen("1366x768", 40, 22), MonitorType.LED);
+
+        // Write one line of code here to create the collection
+        ArrayList<Product> productsTwo = new ArrayList<>();
+
+        productsTwo.add(a1);
+        productsTwo.add(a2);
+        productsTwo.add(m1);
+        productsTwo.add(m2);
+        return productsTwo;
+
+    }
+
+    // Step 16
+    public static void print(ArrayList<Product> products) {
+        for (Product p : products){
+            System.out.println(p);
+        }
     }
 }
